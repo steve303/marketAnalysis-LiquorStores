@@ -9,6 +9,7 @@ CSCI 3287
 Introduction:  
 The concrete objective of this study is to find profitable areas to open up a liquor store in Iowa City.  Determination was done solely through use of public data bases.  Although the study was hypothetical, another major goal of this study was to discover a computational process by selecting and using appropriate tools to answer the question above.  After a process has been established, the methodology can be extrapolated to answer future inquiries.    
 To start this process I used several data bases available on Google’s Big Query application.  These included, Iowa Department of Commerce liquor sales data base and US census geographic and demographic related data bases .   Google’s Big query provides a nice interface to pull in these large data sets.  
+
 The basic procedure was to perform queries and generate tables which focused on statistics of the overall liquor store business in Iowa City.  For example, statistics such as population growth and number of stores over the last five years were examined.  The next level was to drill down to store level sales data and neighborhood demographics.  Lastly, selection of a store location was performed.  This involved postGIS using postgreSQL in Google’s Cloud SQL application.  Graphics were produced using various Python libraries such as Matplotlib and Geopandas.  To make the process more seamless between using Jupyter Notebook and Google Cloud Platform, SQLalchemy was used.  This allowed for some tasks to be automated by creating functions to retrieve data from Google Cloud and plot the results automatically in Jupyter Notebook.  
 
 Public Databases Used:  
@@ -19,6 +20,6 @@ To get an overview of the liquor business in Iowa City I performed an aggregate 
 
 To perform census queries of each liquor store to its census tract I used postgreSQL to create a table called liquorStoreTract which related each liquor store to its geo_id census tract.  I was able to determine each store’s geo_id by seeing if its Point intersected with the census’ tract Polygon.  Now I was able to create a table which related a liquor store to its census demographics data.  I called this table empByLiqStoreTract because I used employment data.  For this table I just used latest data available, year 2016.  Each of these tables are shown below in the entity relationship diagram through the use of MySQL Workbench.  
 
-![png](./images/iowa_er_diagram.png)  
+![pic](./images/iowa_er_diagram.png)  
 Fig. 1  Entity Relation (ER) diagram  
 
